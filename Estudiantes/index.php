@@ -4,8 +4,8 @@ require "../config/conexion.php";
 //Llamado a la clase
 include "../config/ClassEstudiantes/classEstudiantes_sel.php";
 
-$Conductor   = new Conductor();
-$Lista = $Conductor->listarConductor();
+$Estudiantes   = new Estudiantes();
+$Lista = $Estudiantes->listarEstudiantes();
 //Mensaje
 $alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
 
