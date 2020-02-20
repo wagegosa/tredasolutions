@@ -85,7 +85,7 @@ $alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
               <td><?= $libro->EMAIL; ?></td>
               <td>
                 <input type="hidden" name="id" id="id" value="<?= $libro->ID;?>">
-                <a href="../Estudios/index.php?a='<?= $libro->ID;?>'" class="btn btn-xs btn-success">Agregar Estudio</a>
+                <a href="../Estudios/index.php?a=<?= $libro->ID;?>" class="btn btn-xs btn-success">Agregar Estudio</a>
                 <a href="./Mod_Estudiante.php?m='<?= $libro->ID;?>'" class="btn btn-xs btn-info">Modificar</a>
               </td>
               </tr>
