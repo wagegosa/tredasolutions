@@ -6,7 +6,8 @@ include "../config/ClassEstudiantes/classEstudiantes_sel.php";
 
 $Conductor   = new Conductor();
 $Lista = $Conductor->listarConductor();
-
+//Mensaje
+$alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
 
 ?>
   <!DOCTYPE html>
@@ -22,13 +23,19 @@ $Lista = $Conductor->listarConductor();
     <link rel="stylesheet" href="../assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
     <!--Paginación, filtrado de registros-->
     <link rel="stylesheet" href="../assets/footable/css/footable.bootstrap.min.css">
-    <title></title>
+    <title>Estudiantes</title>
     <script src="../assets/js/angular.min.js"></script>
   </head>
 
   <body>
     <div class="container">
-      <?php   include "../Plantillas/plantilla_Menu.php"; ?>
+      <?php   include "../Plantillas/plantilla_Menu.php";
+      /*echo "<pre>";
+      print_r($_GET);
+      echo "</pre>";*/
+      if($_GET != null){?>
+        <div class="alert alert-success"><?php echo isset($alert) ? $alert : ''; ?></div>
+      <?php } ?>
       <div class="row">
         <div class="col-md-12">
           <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Estudiantes</h3>
@@ -39,7 +46,7 @@ $Lista = $Conductor->listarConductor();
           </ol>
           <div class="pull-right">
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-              <a href="New_Conductor.php" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Estudiante Nuevo</a>
+              <a href="New_Estudiantes.php" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Estudiante Nuevo</a>
             </form>
           </div>
 
@@ -73,7 +80,6 @@ $Lista = $Conductor->listarConductor();
               ?>
               <tr>
               <td><?= $c++; ?></td>
-              <td><?= $libro->ID; ?></td>
               <td><?= $libro->NOMBRE; ?></td>
               <td><?= $libro->APELLIDO; ?></td>
               <td><?= $libro->EMAIL; ?></td>
