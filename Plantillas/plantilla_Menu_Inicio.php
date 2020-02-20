@@ -14,7 +14,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Estudiantes <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="./Estudiantes/index.php">Consulta</a></li>
-            <li><a href="./Estudiantes/New_Studen.php">Nuevo</a></li>
+            <li><a href="./Estudiantes/New_Estudiantes.php">Nuevo</a></li>
           </ul>
         </li>
         <li class="dropdown">
