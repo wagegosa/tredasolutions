@@ -1,53 +1,42 @@
 <?php  
-require '../conexion.php';
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
-
-if(!empty($_GET['id'])){
-    //get content from database
-    $query = $db->query("A.ID, A.NOMBREESTUDIO, A.UNIVERSIDAD, A.ANIO, CONCAT(B.NOMBRE, " ",B.APELLIDO) AS ESTUDIANTE
-                         FROM tredasolutions.estudios A
-                         INNER JOIN tredasolutions.estudiante B ON (A.Estudiante = B.ID)
-                        WHERE Estudiante = {$_GET['id']}");
-    if($query->num_rows > 0){
-        $cmsData = $query->fetch_assoc();
-        echo '<h4>'.$cmsData['NOMBREESTUDIO'].'</h4>';
-        echo '<h4>'.$cmsData['UNIVERSIDAD'].'</h4>';
-        echo '<h4>'.$cmsData['ANIO'].'</h4>';
-        echo '<h4>'.$cmsData['ESTUDIANTE'].'</h4>';
-    }else{
-        echo 'Content not found....';
+$verId = $_GET['verId'];
+if ($verId != null) {
+  //Servidor de la Base de datos.
+  $svr = "localhost";
+  //Usuario del Servidor de la Base de datos.
+  $usr = "root";
+  //Contraseña del Usuario de la Base de datos.
+  $pwd = "";
+  //Nombre de la Base de datos.
+  $dbh = "tredasolutions";
+  //Enlace con la base de datos MySQL
+  $dbCon;
+  $db = new mysqli($svr, $usr, $pwd, $dbh);
+  if($db->connect_error){
+    die("Unable to connect database: " . $db->connect_error);
+  }
+  $query = "SELECT A.ID, A.NOMBREESTUDIO, A.UNIVERSIDAD, A.ANIO, 
+        CONCAT(B.NOMBRE, ' ',B.APELLIDO) AS ESTUDIANTE 
+        FROM tredasolutions.estudios A 
+        INNER JOIN tredasolutions.estudiante B ON (A.Estudiante = B.ID) 
+        WHERE A.Estudiante = $verId";
+  $result = mysqli_query($db, $query);
+  if ($result != null) {
+    while ($row = mysqli_fetch_array($result)) {
+      echo "<td>".$row['ID']."</td>";
+      echo "<td>".$row['NOMBREESTUDIO']."</td>";
+      echo "<td>".$row['UNIVERSIDAD']."</td>";
+      echo "<td>".$row['ANIO']."</td>";
+      echo "<td>".$row['ESTUDIANTE']."</td>";
     }
-}else{
-    echo 'Content not found....';
+  } else {
+    echo "<tr>No hay registros de estudios para este estudiante</tr>";
+    // echo "<pre>";
+    // print_r($result);
+    // echo "</pre>";
+    // exit;
+  }
+  
 }
 
-// if(isset($_POST["employee_id"]))  
-// {  
-//   $output = '';  
-//   $connect = mysqli_connect("localhost", "root", "", "testing");  
-//   $query = "SELECT A.ID, A.NOMBREESTUDIO, A.UNIVERSIDAD, A.ANIO, A.Estudiante 
-//             FROM tredasolutions.estudios A
-//             INNER JOIN tredasolutions.estudiante B ON (A.Estudiante = B.ID)
-//             WHERE Estudiante = '".$_POST["employee_id"]."'";  
-//   $result = mysqli_query($connect, $query);  
-//   $output .= '  
-//   <div class="table-responsive">  
-//   <table class="table table-bordered">';  
-//   while($row = mysqli_fetch_array($result))  
-//   {  
-//    $output .= '  
-//    <td width="70%">'.$row["NOMBREESTUDIO"].'</td>  
-//    <td width="70%">'.$row["UNIVERSIDAD"].'</td>  
-//    <td width="70%">'.$row["ANIO"].'</td>
-//    <td width="70%">'.$row["ANIO"].'</td> 
-//    ';  
-//  }  
-//  $output .= '  
-//  </table>  
-//  </div>  
-//  ';  
-//  echo $output;  
-// }  
 ?>
