@@ -1,5 +1,5 @@
 <?php  
-$verId = $_GET['verId'];
+$verId = $_POST['verId'];
 if ($verId != null) {
   //Servidor de la Base de datos.
   $svr = "localhost";
