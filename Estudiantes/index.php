@@ -144,7 +144,7 @@ $alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
           if(verId != null){
             $.ajax({
               url: '../config/ClassEstudios/classEstudio_SelID.php',
-              type: 'GET',
+              type: 'POST',
               // dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
               data: {verId:verId},
               success:function(data){
