@@ -25,8 +25,11 @@ CREATE TABLE IF NOT EXISTS `estudiante` (
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
--- Volcando datos para la tabla tredasolutions.estudiante: 3 rows
+-- Volcando datos para la tabla tredasolutions.estudiante: 0 rows
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
+INSERT INTO `estudiante` (`ID`, `NOMBRE`, `APELLIDO`, `EMAIL`) VALUES
+	(1, 'Gabriela', 'Reyes', 'GaRe@gmail.com'),
+	(2, 'LAURA', 'GONZALEZ', 'LAPLAGOZA@HOTMAIL.COM');
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 
 -- Volcando estructura para tabla tredasolutions.estudios
@@ -41,6 +44,9 @@ CREATE TABLE IF NOT EXISTS `estudios` (
 
 -- Volcando datos para la tabla tredasolutions.estudios: 0 rows
 /*!40000 ALTER TABLE `estudios` DISABLE KEYS */;
+INSERT INTO `estudios` (`ID`, `NOMBREESTUDIO`, `UNIVERSIDAD`, `ANIO`, `Estudiante`) VALUES
+	(1, 'ADMINISTRACIÓN DE RECURSOS PUBLICOS', 'UNIVERSIDAD DEL TOLIMA', '2018', 1),
+	(2, 'Prueba', 'Prueba', '2000', 2);
 /*!40000 ALTER TABLE `estudios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
