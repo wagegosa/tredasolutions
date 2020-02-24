@@ -24,8 +24,7 @@ $alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
     <!--Paginación, filtrado de registros-->
     <link rel="stylesheet" href="../assets/footable/css/footable.bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    
   </head>
     <title>Estudiantes</title>
     <script src="../assets/js/angular.min.js"></script>
@@ -109,20 +108,7 @@ $alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h4 class="modal-title">Estudios.</h4>
               </div>
-              <div class="modal-body">
-                <table class="table table-bordered  table-hover table-striped">
-                  <thead>
-                    <tr>
-                      <th data-filterable="false">Nro</th>
-                      <th data-breakpoints="xs sm">Nombre</th>
-                      <th data-breakpoints="xs sm">Universidad</th>
-                      <th data-breakpoints="xs sm">Año</th>
-                      <th data-breakpoints="xs sm" data-filterable="false">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody class="table-info" id="detalleVer">
-                  </tbody>
-                </table>
+              <div class="modal-body" id="detalleVer">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

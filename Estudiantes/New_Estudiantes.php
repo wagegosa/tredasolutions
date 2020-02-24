@@ -19,7 +19,7 @@
     <?php   include "../Plantillas/plantilla_Menu.php"; ?>
     <div class="row">
       <div class="col-md-12">
-        <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Conductor</h3>
+        <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Estudiantes</h3>
         <ol class="breadcrumb">
           <li><a href="#">Inicio</a></li>
           <li><a href="index.php">Estudiantes</a></li>
