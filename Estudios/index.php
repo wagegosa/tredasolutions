@@ -41,7 +41,7 @@ try {
     <?php   include "../Plantillas/plantilla_Menu.php"; ?>
     <div class="row">
       <div class="col-md-12">
-        <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Conductor</h3>
+        <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Estudios</h3>
         <ol class="breadcrumb">
           <li><a href="#">Inicio</a></li>
           <li><a href="">Estudios</a></li>
