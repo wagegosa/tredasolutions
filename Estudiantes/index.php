@@ -106,7 +106,8 @@ $alert = 'Los datos han sido <strong>Almacenados</strong> corrrectamente';
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title">Estudios.</h4>
+                <h3 class="page-header"><span class="glyphicon glyphicon-folder-open"></span> Estudios.</h3>
+                <!-- <h4 class="modal-title">Estudios.</h4> -->
               </div>
               <div class="modal-body" id="detalleVer">
               </div>
