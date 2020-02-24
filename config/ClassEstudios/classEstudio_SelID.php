@@ -21,7 +21,11 @@ if ($verId != null) {
         INNER JOIN tredasolutions.estudiante B ON (A.Estudiante = B.ID) 
         WHERE A.Estudiante = $verId";
   $result = mysqli_query($db, $query);
-  if ($result != null) {
+  // echo "<pre>";
+  // print_r($result);
+  // echo "</pre>";
+  // exit;
+  if ($result != "") {
     echo "<table class='table table-bordered  table-hover table-striped'>";
       echo "<thead>";
         echo "<tr>";
@@ -30,19 +34,23 @@ if ($verId != null) {
           echo "<th data-breakpoints='xs sm'>Universidad</th>";
           echo "<th data-breakpoints='xs sm'>Año</th>";
           echo "<th data-breakpoints='xs sm'>Estudiante</th>";
-          echo "<th data-breakpoints='xs sm' data-filterable='false'>Acciones</th>";
         echo "</tr>";
       echo "</thead>";
-      echo "<tbody class='table-info' >";
-      while ($row = mysqli_fetch_array($result)) {
-        echo "<td>".$row['ID']."</td>";
-        echo "<td>".$row['NOMBREESTUDIO']."</td>";
-        echo "<td>".$row['UNIVERSIDAD']."</td>";
-        echo "<td>".$row['ANIO']."</td>";
-        echo "<td>".$row['ESTUDIANTE']."</td> <br><br>";
-        echo "<td>";
-          echo "<a href='./Mod_Estudiante.php?m=".$row['ID']." class='btn btn-lg btn-warning' role='button'><span class='glyphicon glyphicon-pencil'></span></a>";
-        echo "</td>";
+      echo "<tbody class='table-info'>
+      <tr>";
+      // $row = mysqli_fetch_array($result);
+      while($row = $result->fetch_array())
+      {
+        $rows[] = $row;
+      }
+      $c=0;
+      foreach($rows as $row) {
+        echo "<td>".++$c."</td>";
+        echo "<td>".$row[1]."</td>";
+        echo "<td>".$row[2]."</td>";
+        echo "<td>".$row[3]."</td>";
+        echo "<td>".$row[4]."</td>";
+        echo "</tr>";
       }
       echo "</tbody>";
     echo "</table>";
